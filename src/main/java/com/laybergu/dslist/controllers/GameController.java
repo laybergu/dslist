@@ -18,6 +18,7 @@ public class GameController {
     private GameService gameService;
 
     @GetMapping
+    @RequestMapping(value = "/findAll")
     public List<GameMinDTO> findAll() {
         
         List<GameMinDTO> result = gameService.findAll();

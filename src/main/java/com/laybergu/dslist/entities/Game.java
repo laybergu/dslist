@@ -15,121 +15,113 @@ public class Game {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
-    private String Title;
+    private Long id;
+    private String title;
     
     @Column(name = "release_year")
-    private Integer Year;
-    private String Genre;
-    private String Platforms;
-    private Double Score;
-    private String ImgUrl;
+    private Integer year;
+    private String genre;
+    private String platforms;
+    private Double score;
+    private String imgUrl;
 
     @Column(columnDefinition = "TEXT")
-    private String ShortDescription;
+    private String shortDescription;
     
     @Column(columnDefinition = "TEXT")
-    private String LongDescription;
+    private String longDescription;
 
     public Game() {
     }
 
-    public Game(
-            Long id,
-            String title,
-            Integer year,
-            String genre,
-            String platforms,
-            Double score,
-            String imgUrl,
-            String shortDescription,
-            String longDescription) {
-        Id = id;
-        Title = title;
-        Year = year;
-        Genre = genre;
-        Platforms = platforms;
-        Score = score;
-        ImgUrl = imgUrl;
-        ShortDescription = shortDescription;
-        LongDescription = longDescription;
+    public Game(Long id, String title, Integer year, String genre, String platforms, Double score, String imgUrl,
+            String shortDescription, String longDescription) {
+        this.id = id;
+        this.title = title;
+        this.year = year;
+        this.genre = genre;
+        this.platforms = platforms;
+        this.score = score;
+        this.imgUrl = imgUrl;
+        this.shortDescription = shortDescription;
+        this.longDescription = longDescription;
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getTitle() {
-        return Title;
+        return title;
     }
 
     public void setTitle(String title) {
-        Title = title;
+        this.title = title;
     }
 
     public Integer getYear() {
-        return Year;
+        return year;
     }
 
     public void setYear(Integer year) {
-        Year = year;
+        this.year = year;
     }
 
     public String getGenre() {
-        return Genre;
+        return genre;
     }
 
     public void setGenre(String genre) {
-        Genre = genre;
+        this.genre = genre;
     }
 
     public String getPlatforms() {
-        return Platforms;
+        return platforms;
     }
 
     public void setPlatforms(String platforms) {
-        Platforms = platforms;
+        this.platforms = platforms;
     }
 
     public Double getScore() {
-        return Score;
+        return score;
     }
 
     public void setScore(Double score) {
-        Score = score;
+        this.score = score;
     }
 
     public String getImgUrl() {
-        return ImgUrl;
+        return imgUrl;
     }
 
     public void setImgUrl(String imgUrl) {
-        ImgUrl = imgUrl;
+        this.imgUrl = imgUrl;
     }
 
     public String getShortDescription() {
-        return ShortDescription;
+        return shortDescription;
     }
 
     public void setShortDescription(String shortDescription) {
-        ShortDescription = shortDescription;
+        this.shortDescription = shortDescription;
     }
 
     public String getLongDescription() {
-        return LongDescription;
+        return longDescription;
     }
 
     public void setLongDescription(String longDescription) {
-        LongDescription = longDescription;
+        this.longDescription = longDescription;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(Id);
+        return Objects.hash(id);
     }
 
     @Override
@@ -141,10 +133,10 @@ public class Game {
         if (getClass() != obj.getClass())
             return false;
         Game other = (Game) obj;
-        if (Id == null) {
-            if (other.Id != null)
+        if (id == null) {
+            if (other.id != null)
                 return false;
-        } else if (!Id.equals(other.Id))
+        } else if (!id.equals(other.id))
             return false;
         return true;
     }
