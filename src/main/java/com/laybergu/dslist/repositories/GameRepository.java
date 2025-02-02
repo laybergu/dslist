@@ -25,9 +25,9 @@ public interface GameRepository extends JpaRepository<Game, Long> {
             ON 
                 tb_game.id = tb_belonging.game_id
             WHERE 
-                tb_belonging.list_id = :listId
+                tb_belonging.genre_id = :genreId
             ORDER BY 
                 tb_belonging.position
             """)
-    List<GameMinProjection> searchByList(Long listId);
+    List<GameMinProjection> searchByGenre(Long genreId);
 }

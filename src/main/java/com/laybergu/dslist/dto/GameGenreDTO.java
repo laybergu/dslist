@@ -1,16 +1,16 @@
 package com.laybergu.dslist.dto;
 
-import com.laybergu.dslist.entities.GameList;
+import com.laybergu.dslist.entities.GameGenre;
 
-public class GameListDTO {
+public class GameGenreDTO {
 
     private Long id;
     private String name;
 
-    public GameListDTO() {
+    public GameGenreDTO() {
     }
 
-    public GameListDTO(GameList entity) {
+    public GameGenreDTO(GameGenre entity) {
         this.id = entity.getId();
         this.name = entity.getName();
     }

@@ -8,31 +8,31 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.laybergu.dslist.dto.GameListDTO;
+import com.laybergu.dslist.dto.GameGenreDTO;
 import com.laybergu.dslist.dto.GameMinDTO;
-import com.laybergu.dslist.services.GameListService;
+import com.laybergu.dslist.services.GameGenreService;
 import com.laybergu.dslist.services.GameService;
 
 @RestController
-@RequestMapping(value = "/lists")
-public class GameListController {
+@RequestMapping(value = "/genre")
+public class GameGenreController {
 
     @Autowired
-    private GameListService gameListService;
+    private GameGenreService gameGenreService;
 
     @Autowired
     private GameService gameService;
 
     @GetMapping
-    public List<GameListDTO> findLists() {
+    public List<GameGenreDTO> findAll() {
 
-        return gameListService.findAll();
+        return gameGenreService.findAll();
     }
 
     @GetMapping
-    @RequestMapping(value = "/{listId}/games")
-    public List<GameMinDTO> findByList(@PathVariable Long listId) {
+    @RequestMapping(value = "/{genreId}/games")
+    public List<GameMinDTO> findByGenre(@PathVariable Long genreId) {
 
-        return gameService.findByList(listId);
+        return gameService.findByGenre(genreId);
     }
 }

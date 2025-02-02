@@ -21,9 +21,9 @@ public class Belonging {
     public Belonging() {
     }
 
-    public Belonging(Game game, GameList list, Integer position) {
+    public Belonging(Game game, GameGenre genre, Integer position) {
         id.setGame(game);
-        id.setList(list);
+        id.setGenre(genre);
         this.position = position;
     }
 
@@ -51,15 +51,15 @@ public class Belonging {
         private Game game;
 
         @ManyToOne
-        @JoinColumn(name = "list_id")
-        private GameList list;
+        @JoinColumn(name = "genre_id")
+        private GameGenre genre;
 
         public Id() {
         }
 
-        public Id(Game game, GameList list) {
+        public Id(Game game, GameGenre genre) {
             this.game = game;
-            this.list = list;
+            this.genre = genre;
         }
 
         public Game getGame() {
@@ -70,17 +70,17 @@ public class Belonging {
             this.game = game;
         }
 
-        public GameList getList() {
-            return list;
+        public GameGenre getGenre() {
+            return genre;
         }
 
-        public void setList(GameList list) {
-            this.list = list;
+        public void setGenre(GameGenre genre) {
+            this.genre = genre;
         }
 
         @Override
         public int hashCode() {
-            return Objects.hash(game, list);
+            return Objects.hash(game, genre);
         }
 
         @Override
@@ -97,10 +97,10 @@ public class Belonging {
                     return false;
             } else if (!game.equals(other.game))
                 return false;
-            if (list == null) {
-                if (other.list != null)
+            if (genre == null) {
+                if (other.genre != null)
                     return false;
-            } else if (!list.equals(other.list))
+            } else if (!genre.equals(other.genre))
                 return false;
             return true;
         }
