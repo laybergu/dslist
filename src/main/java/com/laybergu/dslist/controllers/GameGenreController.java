@@ -5,11 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.laybergu.dslist.dto.GameGenreDTO;
 import com.laybergu.dslist.dto.GameMinDTO;
+import com.laybergu.dslist.dto.ReplacementDTO;
 import com.laybergu.dslist.services.GameGenreService;
 import com.laybergu.dslist.services.GameService;
 
@@ -35,4 +38,13 @@ public class GameGenreController {
 
         return gameService.findByGenre(genreId);
     }
+
+    @PostMapping("/{genreId}/replacement")
+    public void replacement(
+            @PathVariable Long genreId,
+            @RequestBody ReplacementDTO dto) {
+
+        gameGenreService.changePosition(genreId, dto.getSourceIndex(), dto.getDestinationIndex());
+    }
+
 }
